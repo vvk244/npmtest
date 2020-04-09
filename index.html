@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Grab it!!!!</title>
+	<link href="./css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="./css/mystyle.css" rel="stylesheet" type="text/css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+				<a class="navbar-brand" href="#">Navbar</a>
+			</div>
+			<div  class="collapse navbar-collapse" id="navbarCollapse">
+				<ul class="nav navbar-nav navbar-left">
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">More
+							<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Page 1-1</a></li>
+							<li><a href="#">Page 1-2</a></li>
+							<li><a href="#">Page 1-3</a></li>
+						</ul>
+					</li>
+				</ul>
+
+        <ul class="nav navbar-nav">
+					<li><a href="#">Login&Sign Up</a></li>
+				</ul>
+
+				<form class="navbar-form navbar-right">
+					<div class="input-group">
+						<input type="text" class="form-control" placeholder="Search" name="search">
+						<div class="input-group-btn">
+							<button class="btn btn-default" type="submit">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+						</div>
+					</div>
+				</form>
+
+			</div>
+
+		</div>
+	</nav>
+
+</body>
+
+</html>
+
+
+
+============================= test session starts ==============================
+
+platform linux -- Python 3.5.2, pytest-5.2.2, py-1.8.1, pluggy-0.13.1
+
+rootdir: /projects/challenge
+
+collected 2 items
+
+test/test_webpage.py .F                                                  [100%]
+
+=================================== FAILURES ===================================
+
+___________________________ TestWebpage.test_navbar ____________________________
+
+self = <test_webpage.TestWebpage object at 0x7fb17e7e1898>
+
+    def test_navbar(self):
+
+        assert self._index.find('a',{'class':'navbar-brand'})
+
+        assert self._index.find('button',{'data-target':'#navbarCollapse'})
+
+        assert self._index.find('form',{'class':'navbar-form navbar-right'})
+
+        assert self._index.find('span',{'class':'glyphicon glyphicon-search'})
+
+>       assert self._index.find('ul',{'class':'nav navbar-nav navbar-right'})
+
+E       assert None
+
+E        +  where None = <bound method Tag.find of <!DOCTYPE html>\n\n<html>\n<head>\n<title>Grab it!!!!</title>\n<link href="./css/bootstrap.min.cs...\n<span class="glyphicon glyphicon-search"></span>\n</button>\n</div>\n</div>\n</form>\n</div>\n</div>\n</nav>\n</body>\n</html>>('ul', {'class': 'nav navbar-nav navbar-right'})
+
+E        +    where <bound method Tag.find of <!DOCTYPE html>\n\n<html>\n<head>\n<title>Grab it!!!!</title>\n<link href="./css/bootstrap.min.cs...\n<span class="glyphicon glyphicon-search"></span>\n</button>\n</div>\n</div>\n</form>\n</div>\n</div>\n</nav>\n</body>\n</html>> = <!DOCTYPE html>\n\n<html>\n<head>\n<title>Grab it!!!!</title>\n<link href="./css/bootstrap.min.css" rel="stylesheet" type="...>\n<span class="glyphicon glyphicon-search"></span>\n</button>\n</div>\n</div>\n</form>\n</div>\n</div>\n</nav>\n</body>\n</html>.find
+
+E        +      where <!DOCTYPE html>\n\n<html>\n<head>\n<title>Grab it!!!!</title>\n<link href="./css/bootstrap.min.css" rel="stylesheet" type="...>\n<span class="glyphicon glyphicon-search"></span>\n</button>\n</div>\n</div>\n</form>\n</div>\n</div>\n</nav>\n</body>\n</html> = <test_webpage.TestWebpage object at 0x7fb17e7e1898>._index
+
+test/test_webpage.py:21: AssertionError
+
+=============================== warnings summary ===============================
+
+test/test_webpage.py::TestWebpage::test_navbar
+
+  /projects/challenge/test/test_webpage.py:21: PytestAssertRewriteWarning: asserting the value None, please use "assert is None"
+
+    assert self._index.find('ul',{'class':'nav navbar-nav navbar-right'})
+
+-- Docs: https://docs.pytest.org/en/latest/warnings.html
+
+=================== 1 failed, 1 passed, 1 warnings in 0.15s ====================
